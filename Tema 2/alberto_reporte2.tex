@@ -140,7 +140,16 @@ En cuanto al contexto del libro, esta información no es muy relevante puesto qu
     \label{wc_palabras}
 \end{figure}
 
-Por último, se hizo una animación de la frecuencia acumulada de las cincuenta palabras más significativas que aparecen en la obra a partir del porcentaje de avance de la misma, de uno en uno por ciento. Esta animación puede verse en \url{https://tinyurl.com/y2dnxrv8}.
+Asimismo, se hizo una animación de la frecuencia acumulada de las cincuenta palabras más significativas que aparecen en la obra a partir del porcentaje de avance de la misma, de uno en uno por ciento. Esta animación puede verse en \url{https://tinyurl.com/y2dnxrv8}.
+
+Por último, se analizaron los \textbf{bigramas}, o sea las palabras que más comúnmente se encuentran seguidas a lo largo de la obra. Éstos se pueden obtener también con la función \texttt{unnest\_tokens(bigram, \ldots)} (existen dos tutoriales muy completos en \url{https://tinyurl.com/y5yzdxdm} y \url{https://tinyurl.com/y2qcvrcq}). El procedimiento consiste en encontrar los bigramas, eliminar aquéllos que contienen palabras vacías y realizar un conteo de los más significativos. Un grafo de estos bigramas con al menos diez apariciones puede observarse en la figura \ref{bigramas} (p. \pageref{bigramas}). Como puede obserarse, la mayoría de los bigramas formados pertenecen a nombres de personas o a títulos seguidos de nombres, por ejemplo ``Dr. Seward''. Aparte de estos bigramas, destacan los ``poor Lucy'' o ``dear Lucy'' personaje por el que podría arrojarse la suposición de que es tan querida como conmiserada durante la obra.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{bigramas.pdf}
+    \caption{Grafo de bigramas más representativos en la obra \textit{Dracula}. Los vértices dirigidos representan la secuencia de los bigramas y el tamaño de los nodos el conteo de cada palabra utilizada en los bigramas.}
+    \label{bigramas}
+\end{figure}
 
 \bibliographystyle{plainnat}
 \bibliography{Biblio}
