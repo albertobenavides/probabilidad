@@ -109,7 +109,7 @@ Un análisis estadístico básico de un libro consiste en analizar la frecuencia
 
 \section{Recursos}
 
-El libro de Dracula \cite{dracula} se encuentra disponible de manera gratuita en el sitio de Project Gutemberg que alberga libros cuya propiedad intelectual ha caducado y, por lo tanto, se trata de obras que forman parte del dominio público. Se puede acceder a los textos planos de estas obras mediante la librería \texttt{gutembergr} \cite{gutenbergr} de R y la descomposición en palabras de la obra se facilita con el uso de \texttt{tidytext} \cite{tidytext} que, a su vez, utiliza para su funcionamiento la librería \texttt{dplyr} \cite{dplyr}. Existe un cuaderno de Jupyter \cite{jupyter} donde se trabajaron los datos disponible en \url{https://tinyurl.com/pendiente}.
+El libro de Dracula \cite{dracula} se encuentra disponible de manera gratuita en el sitio de Project Gutemberg que alberga libros cuya propiedad intelectual ha caducado y, por lo tanto, se trata de obras que forman parte del dominio público. Se puede acceder a los textos planos de estas obras mediante la librería \texttt{gutembergr} \cite{gutenbergr} de R y la descomposición en palabras de la obra se facilita con el uso de \texttt{tidytext} \cite{tidytext} que, a su vez, utiliza para su funcionamiento la librería \texttt{dplyr} \cite{dplyr}. Existe un cuaderno de Jupyter \cite{jupyter} donde se trabajaron los datos disponible en \url{https://tinyurl.com/y3dp3ngl}.
 
 \section{Preprocesamiento}
 Después de obtenido el libro mediante la función \texttt{gutenberg\_download}, se analiza su contenido inicial y final con las funciones \texttt{head} y \texttt{tail}. Esto muestra la existencia de apartados introductorios y anexos que se escapan del contenido del libro en sí, por lo que se procede a remover del contenido esos elementos. Destaca aquí el uso de la función \texttt{grep} que permite identificar expresiones regulares y, en este caso, la ubicación del final del libro que coindice con las palabras ``THE END''.
@@ -140,7 +140,7 @@ En cuanto al contexto del libro, esta información no es muy relevante puesto qu
     \label{wc_palabras}
 \end{figure}
 
-Por último, se hizo una animación de la frecuencia acumulada de las cincuenta palabras más significativas que aparecen en la obra a partir del porcentaje de avance de la misma, de uno en uno por ciento. Esta animación puede verse en \url{https://tinyurl.com/pendiente}.
+Por último, se hizo una animación de la frecuencia acumulada de las cincuenta palabras más significativas que aparecen en la obra a partir del porcentaje de avance de la misma, de uno en uno por ciento. Esta animación puede verse en \url{https://tinyurl.com/y2dnxrv8}.
 
 \bibliographystyle{plainnat}
 \bibliography{Biblio}
