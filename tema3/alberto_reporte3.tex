@@ -117,7 +117,51 @@ El libro de \textit{Dracula} \cite{dracula1897} escrito por \citeauthor*{dracula
 Después de obtenido el libro mediante la función \texttt{gutenberg\_download}, se analiza su contenido inicial y final con las funciones \texttt{head} y \texttt{tail}. Esto muestra la existencia de apartados introductorios y anexos que se escapan del contenido del libro en sí, por lo que se procede a remover del contenido esos elementos. Destaca aquí el uso de la función \texttt{grep} que permite identificar expresiones regulares y, en este caso, la ubicación del final del libro que coindice con las palabras ``THE END''.
 
 \section{Resultados y análisis}
-Con el contenido del libro se pueden extraer las oraciones que contiene. Para ello primero es necesario convertir el libro obtenido en una sola cadena de texto, lo que se hace con la función \texttt{paste}, seguido del uso de la función \texttt{text\_split} de la librería \texttt{corpus} que separa las oraciones de dicho texto. Se prefiere el uso de esta librería puesto que obvia abreviaturas que usan puntos para evitar separar oraciones por estos motivos. De estas oraciones se cuentan las palabras que contienen y las comas con \texttt{strsplit} para la primera y \texttt{str\_count} para la última. Enseguida se grafican los histogramas de palabras y comas por oración junto a una función de distribución que se equipara a sus proporciones. Estas gráficas pueden verse en las figuras \ref{palabras} (p. \pageref{palabras}) y \ref{comas} (p. \pageref{comas}), respectivamente. Los procedimientos computacionales y sus códigos pueden revisarse en \url{https://github.com/jbenavidesv87/probabilidad/blob/master/tema3/tarea.ipynb}
+Con el contenido del libro se pueden extraer las oraciones que contiene. Para ello primero es necesario convertir el libro obtenido en una sola cadena de texto, lo que se hace con la función \texttt{paste}, seguido del uso de la función \texttt{text\_split} de la librería \texttt{corpus} que separa las oraciones de dicho texto. Se prefiere el uso de esta librería puesto que obvia abreviaturas que usan puntos para evitar separar oraciones por estos motivos. De estas oraciones se cuentan las palabras, las comas, y los puntos y comas que contienen con \texttt{strsplit} para la primera y \texttt{str\_count} para las últimas. En la figura \ref{densidad} se grafican las distribuciones de densidad de las obras de \textit{Dracula} y \textit{Frankenstein} \cite{frankenstein1831}. La última obra fue escrita por \citeauthor{frankenstein1831} en \citeyear{frankenstein1831}.
+
+\begin{figure}
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{dra_palabras.pdf}
+        \caption{Palabras por oración \textit{Dracula}}
+        \label{dra_palabras}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{fra_palabras.pdf}
+        \caption{Palabras por oración \textit{Frankenstein}}
+        \label{fra_palabras}
+    \end{subfigure}
+            \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{dra_comas.pdf}
+        \caption{Comas por oración \textit{Dracula}}
+        \label{dra_comas}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{fra_comas.pdf}
+        \caption{Comas por oración \textit{Frankenstein}}
+        \label{fra_comas}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{dra_pcomas.pdf}
+        \caption{Punto y comas por oración en \textit{Dracula}}
+        \label{dra_pcomas}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{fra_pcomas.pdf}
+        \caption{Punto y comas por oración en \textit{Frankenstein}}
+        \label{fra_pcomas}
+    \end{subfigure}
+    \caption{Funciones de densidad para las obras de \textit{Dracula} y \textit{Frankenstein}.}
+    \label{densidad}
+\end{figure}
+
+
+Por último, para la obra de \textit{Dracula} se muestran los histogramas de palabras y comas por oración junto a una función de distribución que se equipara a sus proporciones. Estas gráficas pueden verse en las figuras \ref{palabras} (p. \pageref{palabras}) y \ref{comas} (p. \pageref{comas}), respectivamente. Los procedimientos computacionales y sus códigos pueden revisarse en \url{https://github.com/jbenavidesv87/probabilidad/blob/master/tema3/tarea.ipynb}
 
 \begin{figure}
     \centering
