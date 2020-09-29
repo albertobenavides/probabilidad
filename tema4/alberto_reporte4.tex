@@ -159,7 +159,7 @@ Dada la definición de la distribución de Poisson como la probabilidad de que s
     \label{norm}
 \end{figure}
 
-Este mismo procedimiento se puede utilizar con números generados a partir de una distribución uniforme $\mathcal{U}(0, 1)$. La diferencia en este caso es que la media de la suma de los valores debe dividirse entre dos debido a que una distribución uniforme tiene una $E(X) = 0.5$. Los histogramas de este generador y distribución de Poisson se hallan en la figura \ref{unif} (p. \pageref{unif}).
+Este mismo procedimiento se puede utilizar con números generados a partir de una distribución uniforme $\mathcal{U}(0, 1)$. La diferencia en este caso es que la media de la suma de los valores debe dividirse entre dos debido a que una distribución uniforme tiene una $E(X) = 0.5$. Los histogramas de este generador y distribución de Poisson se hallan en las figuras \ref{unif_izq} y \ref{unif_der} (p. \pageref{unif}). De manera análoga, se puede utilizar una distribución binomial $\mathcal{B}(m, p)$ en la que la multiplicación de $n \times m \times p$ da por resultado la media de la distribución generada y, por lo mismo, el parámetro $\lambda$ que usa la distribución de Poisson. Los histogramas de estas funciones pueden verse en \ref{binom_izq} y \ref{binom_der} (p. \pageref{unif}).
 
 \begin{figure}
     \begin{subfigure}{.5\textwidth}
@@ -174,7 +174,20 @@ Este mismo procedimiento se puede utilizar con números generados a partir de un
         \caption{Valores generados por distribución $\text{Poisson}(\lambda)$}
         \label{unif_der}
     \end{subfigure}
-    \caption{Histograma de $10000$ valores generados por la suma de $100$ números aleatorios con una distribución $\mathcal{U}(0, 1)$ \ref{unif_izq} y el obtenido por la función \texttt{rpois} de \texttt{R} \ref{unif_der}.}
+
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{binom.pdf}
+        \caption{Generador a partir de distribución binomial.}
+        \label{binom_izq}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{binom_poisson.pdf}
+        \caption{Valores generados por distribución $\text{Poisson}(\lambda)$}
+        \label{binom_der}
+    \end{subfigure}
+    \caption{Histograma de $10000$ valores generados por la suma de $100$ números aleatorios con una distribución $\mathcal{U}(0, 1)$ \ref{unif_izq}, una binomial $\mathcal{B}(100, 0.01)$ \ref{binom_izq} y los obtenido por la función \texttt{rpois} de \texttt{R}  para cada una respectivamente, \ref{unif_der} y \ref{binom_der}.}
     \label{unif}
 \end{figure}
 
