@@ -104,11 +104,11 @@
 \maketitle
 
 \section{Introducción}
-En esta práctica se ha desarrollado una metodología computacional que permite comparar las correlaciones de ciertas funciones después de transformar sus variables de entrada y salida mediante las transformadas de Tuckey y de Box--Cox.
+En esta práctica se ha desarrollado una metodología computacional que permite comparar las correlaciones de ciertas funciones después de transformar sus variables de entrada y salida mediante las transformadas de Tukey y de Box--Cox.
 
 \section{Transformadas}
 
-Las \emph{transformadas de Tuckey} \citep*{tuckey} parten de la idea de transformar variables independientes $X$ o dependientes $Y = f(X)$ en potencias de dichas variables $X^\lambda, Y^\lambda$ a partir de los distintos valores que pueda tomar $\lambda$, tal que
+Las \emph{transformadas de Tukey} \citep*{tukey} parten de la idea de transformar variables independientes $X$ o dependientes $Y = f(X)$ en potencias de dichas variables $X^\lambda, Y^\lambda$ a partir de los distintos valores que pueda tomar $\lambda$, tal que
 \begin{equation}
     z_\lambda = \left \{
         \begin{array}{ll}
@@ -129,7 +129,7 @@ Por otro lado, las \emph{transformadas de Box--Cox} \citep*{boxcox}, por su cuen
 Ambas transformadas suelen usarse para mejorar la correlación de las funciones resultantes con respecto a la función original. Para ello, es posible transformar sólo $X$, $Y$ o ambas al mismo tiempo y luego calcular las correlaciones entre dichas variables. Así, una manera de encontrar la mejor transformada para una determinada función sería definir algunos valores de $\lambda$, transformarla mediante ambas transformadas y graficar las correlaciones de las funciones con transformaciones en $X$, $Y$ o ambas variables.
 
 \section{Diseño de experimentos}
-Se realiza un diseño de experimentos para comparar las correlaciones de las funciones transformadas a partir de las transformaciones de Tuckey y Box--Cox. Como ejemplo, se utilizan las funciones
+Se realiza un diseño de experimentos para comparar las correlaciones de las funciones transformadas a partir de las transformaciones de Tukey y Box--Cox. Como ejemplo, se utilizan las funciones
 \begin{itemize}
     \item $1 / x$,
     \item $x ^ 2$,
@@ -141,7 +141,7 @@ Se realiza un diseño de experimentos para comparar las correlaciones de las fun
     \item $\tan(x \cdot \frac{180}{\pi})$.
 \end{itemize}
 
-La variable  $\lambda = [-3.0, -2.5, -2.0, \ldots, 2.0, 2.5, 3.0 ]$, mientras que las transformaciones se aplican sobre sólo $X$, sólo $Y$ y ambas simultáneamente. Se generan mil valores de $X$ a partir de una distribución uniforme $\mathcal{U}(-100, 100)$ y se calculan $Y$ para cada función. Luego, se grafican las funciones de las transformadas de Tuckey y Box--Cox para cada una de estas variantes. Por último, se grafican las correlaciones con los distintos $\lambda$ tanto para las transformaciones de Tuckey como las de Box--Cox.
+La variable  $\lambda = [-3.0, -2.5, -2.0, \ldots, 2.0, 2.5, 3.0 ]$, mientras que las transformaciones se aplican sobre sólo $X$, sólo $Y$ y ambas simultáneamente. Se generan mil valores de $X$ a partir de una distribución uniforme $\mathcal{U}(-100, 100)$ y se calculan $Y$ para cada función. Luego, se grafican las funciones de las transformadas de Tukey y Box--Cox para cada una de estas variantes. Por último, se grafican las correlaciones con los distintos $\lambda$ tanto para las transformaciones de Tukey como las de Box--Cox.
 
 \section{Resultados}
 Se muestran algunos ejemplos de esta práctica. Primero $1/x$. La función se muestra en la figura \ref{xTfunc3} (p. \pageref{xTfunc3}). El despliegue de correlaciones para las transformaciones de $X$, $Y$ y ambas se muestra en la figura \ref{corr3} (p. \pageref{corr3}). En dicha figura se puede apreciar que los valores de las correlaciones para ambas transformadas con los mismos valores $\lambda$ son iguales. Además, una animación de las diferentes transformaciones a lo largo de los cambios en $\lambda$ puede consultarse en \url{https://tinyurl.com/yxjepzdf}, \url{https://tinyurl.com/y468ba9o} y \url{https://tinyurl.com/y2e6a6w2} para las transformaciones de $X$, $Y$ y ambas, respectivamente. El resto de las funciones, comparaciones entre correlaciones, animaciones y el código se hallan en \url{https://github.com/jbenavidesv87/probabilidad/tree/master/tema7}.
@@ -172,7 +172,7 @@ Se muestran algunos ejemplos de esta práctica. Primero $1/x$. La función se mu
         \caption{$X$ y $Y$ transformadas.}
         \label{yTcorr3}
     \end{subfigure}
-    \caption{Gráficas de las correlaciones para la función $1/x$ con transformaciones para $X$, $Y$ y ambas. En el eje horizontal se grafican los valores de $\lambda$, la mitad roja corresponde a transformación de Tuckey, mientras que la azul a la de Box--Cox.}
+    \caption{Gráficas de las correlaciones para la función $1/x$ con transformaciones para $X$, $Y$ y ambas. En el eje horizontal se grafican los valores de $\lambda$, la mitad roja corresponde a transformación de Tukey, mientras que la azul a la de Box--Cox.}
     \label{corr3}
 \end{figure}
 
