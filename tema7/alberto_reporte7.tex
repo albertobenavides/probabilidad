@@ -141,10 +141,40 @@ Se realiza un diseño de experimentos para comparar las correlaciones de las fun
     \item $\tan(x \cdot \frac{180}{\pi})$.
 \end{itemize}
 
-La variable  $\lambda = [-3.0, -2.5, -2.0, \ldots, 2.0, 2.5, 3.0 ]$, mientras que las transformaciones se aplican sobre sólo $X$, sólo $Y$ y ambas simultáneamente. Se generan $1000$ valores de $X$ a partir de una distribución uniforme y se calculan $Y$ para cada función. Luego, se grafican las funciones de las transformadas de Tuckey y Box--Cox para cada una de estas variantes. Por último, se grafican las correlaciones con los distintos $\lambda$ tanto para las transformaciones de Tuckey como las de Box--Cox.
+La variable  $\lambda = [-3.0, -2.5, -2.0, \ldots, 2.0, 2.5, 3.0 ]$, mientras que las transformaciones se aplican sobre sólo $X$, sólo $Y$ y ambas simultáneamente. Se generan mil valores de $X$ a partir de una distribución uniforme $\mathcal{U}(-100, 100)$ y se calculan $Y$ para cada función. Luego, se grafican las funciones de las transformadas de Tuckey y Box--Cox para cada una de estas variantes. Por último, se grafican las correlaciones con los distintos $\lambda$ tanto para las transformaciones de Tuckey como las de Box--Cox.
 
 \section{Resultados}
-Se muestran algunos ejemplos representativos para esta práctica. Revisar la función de Tuckey
+Se muestran algunos ejemplos de esta práctica. Primero $1/x$. La función se muestra en la figura \ref{xTfunc3} (p. \pageref{xTfunc3}). El despliegue de correlaciones para las transformaciones de $X$, $Y$ y ambas se muestra en la figura \ref{corr3} (p. \pageref{corr3}). En dicha figura se puede apreciar que los valores de las correlaciones para ambas transformadas con los mismos valores $\lambda$ son iguales. Además, una animación de las diferentes transformaciones a lo largo de los cambios en $\lambda$ puede consultarse en PENDIENTE.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{xTfunc3.pdf}
+    \caption{Función $1 / x$ a partir de mil valores de $X$ desde una distribución uniforme con valores $[-100, 100]$.}
+    \label{xTfunc3}
+\end{figure}
+
+\begin{figure}
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{xTcorr3.pdf}
+        \caption{$X$ transformada.}
+        \label{xTcorr3}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{yTcorr3.pdf}
+        \caption{$Y$ transformada.}
+        \label{yTcorr3}
+    \end{subfigure}
+    \begin{subfigure}{1\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{xT_yTcorr3.pdf}
+        \caption{$X$ y $Y$ transformadas.}
+        \label{yTcorr3}
+    \end{subfigure}
+    \caption{Gráficas de las correlaciones para la función $1/x$ con transformaciones para $X$, $Y$ y ambas. En el eje horizontal se grafican los valores de $\lambda$, la mitad roja corresponde a transformación de Tuckey, mientras que la azul a la de Box--Cox.}
+    \label{corr3}
+\end{figure}
 
 \bibliographystyle{plainnat}
 \bibliography{Biblio}
