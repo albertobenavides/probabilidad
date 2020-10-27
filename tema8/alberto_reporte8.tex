@@ -107,6 +107,7 @@
 \section{Teorema de Bayes}
 Según \citet{grinsteadEA1997}, en problemas en los que hay $m$ hipótesis $H_i, i = [1, m]$ que pueden ser confirmadas por alguna evidencia $E$, se puede utilizar el teorema de Bayes para conocer la probabilidad de una determinada hipótesis dada la evidencia $P(H_i|E)$ según la fórmula
 \begin{equation}
+    \label{bayes}
     P(H_i|E) = \frac{P(H_i) P(E|H_i)}{\sum_{k = 1}^m P(H_k) P(E|H_k)}.
 \end{equation}
 
@@ -150,15 +151,14 @@ Además, a partir de estas posibilidades se pueden calcular
 
 \section{Datos utilizados}
 
-Con todo esto, se puede aplicar este teorema a valores de contagio obtenidos de datos reales. Se extraen de la Secretaría de Salud de México \citep{gob} datos de contagios de Covid--19 en México. De estos datos se extraen solamente los casos que se consideran positivos y negativos, o sea $p' = 864,696$ positivos y $n' = 1,072,760$ negativos. 
+Con todo esto, se puede aplicar este teorema a valores de contagio obtenidos de datos reales. Se extraen de la Secretaría de Salud de México \citep{gob} datos de contagios de Covid--19 en México. De estos datos se extraen solamente los casos que se consideran positivos y negativos, o sea $p' = 864,696$ positivos y $n' = 1,072,760$ negativos; con un total de $1,937,456$ pruebas.
 
 \section{Exactitud de las pruebas}
 
 Entre las distintas pruebas que existen, el porcentaje de exactitud puede variar desde un $20\%$ a un $80\%$ según las características y tipos de pruebas aplicadas. Los porcentajes más bajos corresponden a pruebas consideradas rápidas que se realizan a partir de muestras de sangre. Los resultados altos para las pruebas se asocian a pruebas virales (de mucosas y tejidos del sistema respiratorio). Para pacientes asintomáticos, las pruebas virales tienen una exactitud de $30\%$ a $50\%$, mientras que en los pacientes con síntomas, están en el rango de $60\%$ a $80\%$ \citep{garcia2020, LisboaEA2516}. Generalmente, el porcentaje de exactitud para pruebas bayesianas que se suele elegir es de $70\%$, por lo que se tomará dicho valor en este análisis también.
 
 \section{Estimaciones a partir de los datos}
-De los valores que se tienen a partir de los datos de contagios obtenidos de la Secretaría de Salud de México y del $70\%$ estimado de exactitud de las pruebas, se pueden obtener la cantidad de verdaderos positivos $\text{VP} = 0.7 p'$, falso positivo $\text{FP} = 0.3 n'$, falsos negativos $\text{FN} = 0.3 p'$, y verdaderos negativos $\text{VN} = 0.7 n'$. Esto queda representado en la tabla \ref{carac}. Con estos resultados, se puede estimar el número de contagiados en México es $p = \text{VP} + \text{FN} = 927, 115$, en tanto el número de personas no contagiadas que se hicieron las pruebas sería $n = p = \text{VN} + \text{FP} = 1,010,341$. Estos estimados incrementan un $7.2\%$ los casos positivos y disminuyen un $5.9\%$ los casos negativos.
-
+De los valores que se tienen a partir de los datos de contagios obtenidos de la Secretaría de Salud de México y del $70\%$ estimado de exactitud de las pruebas, se pueden obtener la cantidad de verdaderos positivos $\text{VP} = 0.7 p'$, falso positivo $\text{FP} = 0.3 n'$, falsos negativos $\text{FN} = 0.3 p'$, y verdaderos negativos $\text{VN} = 0.7 n'$. Esto queda representado en la tabla \ref{carac}. Con estos resultados, se puede estimar el número de contagiados en México es $p = \text{VP} + \text{FN} = 927, 115$, en tanto el número de personas no contagiadas que se hicieron las pruebas sería $n = p = \text{VN} + \text{FP} = 1,010,341$. Estos estimados incrementan un $7.2\%$ los casos positivos y disminuyen un $5.9\%$ los casos negativos, en relación a los reportados.
 
 \begin{table}[]
     \centering
@@ -172,7 +172,21 @@ De los valores que se tienen a partir de los datos de contagios obtenidos de la 
     \label{carac}
 \end{table}
 
-\bibliographystyle{plainnat}
+\section{Teorema de Bayes aplicado a pruebas de Covid--19}
+En el caso de las pruebas de Covid--19, se pueden definir algunas variables. Por ejemplo, $H_1:$ ``estoy contagiado de Covid--19''; $E:$ ``la prueba salió positiva''. De este modo, se podría desear averiguar si un paciente tiene Covid--19 dado que recibió una prueba con resultado positivo, esto es $P(H_1|E)$. Por otro lado, $H_2:$ ``no estoy contagiado de Covid--19''. De aquí, se tiene $P(H_1) = \frac{927,115}{1,937,456} = 0.4785$ como la proporción de pacientes con Covid--19 entre todos los que se hicieron la prueba; y $P(H_2) = 1 - P(H_1) = 0.5215$ en tanto la proporción de pacientes no contagiados de Covid--19 de entre los que se hicieron la prueba.
+
+Así, se pueden obtener algunos otros datos de interés como la proporción de pruebas positivas para los pacientes que sí están infectados $P(E | H_1) = 0.7$ y para los que no lo están $P(E | H_2) = 0.3$.
+
+Con estos valores, se puede calcular $P(H_1 | E)$ a partir de la ecuación \ref{bayes} como sigue:
+\begin{equation*}
+    P(H_1 | E) = \frac{P(H_1) P(E|H_1)}{P(H_1) P(E|H_1) + P(H_2) P(E|H_2)} = 0.6816,
+\end{equation*}
+es decir que se tiene una probabilidad de estar contagiado de un $68.16\%$ si es que una prueba sale positiva, a partir de los supuestos aquí descritos.
+
+\section{Notas adicionales}
+El teorema de Bayes es una manera de conocer probabilidades de eventos dependientes entre sí que puede aplicarse para dar estimaciones más certeras a partir de resultados observados. En este caso, es posible repetir los cálculos con valores que reflejen la prueba usada para la detección del Covid--19 y sus porcentajes de exactitud asociados, además del número de pruebas realizadas, los casos positivos y negativos, tanto falsos como verdaderos.
+
+\bibliographystyle{espnat}
 \bibliography{Biblio}
 
 \end{document}
