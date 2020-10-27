@@ -105,10 +105,10 @@
 \maketitle
 
 \section{Teorema de Bayes}
-Según \citet{grinsteadEA1997}, en problemas en los que hay $m$ hipótesis $H_i, i = [1, m]$ que pueden ser confirmadas por alguna evidencia $E$, se puede utilizar el teorema de Bayes para conocer la probabilidad de una determinada hipótesis dada la evidencia $P(H_i|E)$ según la fórmula
+Según \citet{grinsteadEA1997}, en problemas en los que hay $m$ hipótesis $H_i, i = [1, m]$ que pueden ser confirmadas por alguna evidencia $E$, se puede utilizar el teorema de Bayes para conocer la probabilidad de una determinada hipótesis dada la evidencia $P(H_i \mid E)$ según la fórmula
 \begin{equation}
     \label{bayes}
-    P(H_i|E) = \frac{P(H_i) P(E|H_i)}{\sum_{k = 1}^m P(H_k) P(E|H_k)}.
+    P(H_i \mid E) = \frac{P(H_i) P(E \mid H_i)}{\sum_{k = 1}^m P(H_k) P(E \mid H_k)}.
 \end{equation}
 
 \section{Pruebas de detección de Covid--19}
@@ -120,13 +120,6 @@ Estos conceptos de la probabilidad se pueden aplicar a ramas de la epidemología
     \item Falso negativo ($\text{FN}$): El paciente está infectado $p$ y fue diagnosticado negativo $n'$.
     \item Verdadero negativo ($\text{VN}$): El paciente no está infectado $n$ y fue diagnosticado negativo $n'$.
 \end{itemize}
-
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=1\textwidth]{img/posibilidades.png}
-%     \caption{}
-%     \label{posibilidades}
-% \end{figure}
 
 \begin{table}[]
     \centering
@@ -158,7 +151,7 @@ Con todo esto, se puede aplicar este teorema a valores de contagio obtenidos de 
 Entre las distintas pruebas que existen, el porcentaje de exactitud puede variar desde un $20\%$ a un $80\%$ según las características y tipos de pruebas aplicadas. Los porcentajes más bajos corresponden a pruebas consideradas rápidas que se realizan a partir de muestras de sangre. Los resultados altos para las pruebas se asocian a pruebas virales (de mucosas y tejidos del sistema respiratorio). Para pacientes asintomáticos, las pruebas virales tienen una exactitud de $30\%$ a $50\%$, mientras que en los pacientes con síntomas, están en el rango de $60\%$ a $80\%$ \citep{garcia2020, LisboaEA2516}. Generalmente, el porcentaje de exactitud para pruebas bayesianas que se suele elegir es de $70\%$, por lo que se tomará dicho valor en este análisis también.
 
 \section{Estimaciones a partir de los datos}
-De los valores que se tienen a partir de los datos de contagios obtenidos de la Secretaría de Salud de México y del $70\%$ estimado de exactitud de las pruebas, se pueden obtener la cantidad de verdaderos positivos $\text{VP} = 0.7 p'$, falso positivo $\text{FP} = 0.3 n'$, falsos negativos $\text{FN} = 0.3 p'$, y verdaderos negativos $\text{VN} = 0.7 n'$. Esto queda representado en la tabla \ref{carac}. Con estos resultados, se puede estimar el número de contagiados en México es $p = \text{VP} + \text{FN} = 927, 115$, en tanto el número de personas no contagiadas que se hicieron las pruebas sería $n = p = \text{VN} + \text{FP} = 1,010,341$. Estos estimados incrementan un $7.2\%$ los casos positivos y disminuyen un $5.9\%$ los casos negativos, en relación a los reportados.
+De los valores que se tienen a partir de los datos de contagios obtenidos de la Secretaría de Salud de México y del $70\%$ estimado de exactitud de las pruebas, se pueden obtener la cantidad de verdaderos positivos $\text{VP} = 0.7 p'$, falsos positivos $\text{FP} = 0.3 n'$, falsos negativos $\text{FN} = 0.3 p'$, y verdaderos negativos $\text{VN} = 0.7 n'$. Esto queda representado en la tabla \ref{carac}. Con estos resultados, se puede estimar el número de contagiados en México es $p = \text{VP} + \text{FN} = 927, 115$, en tanto el número de personas no contagiadas que se hicieron las pruebas sería $n = p = \text{VN} + \text{FP} = 1,010,341$. Estos estimados incrementan un $7.2\%$ los casos positivos y disminuyen un $5.9\%$ los casos negativos, en relación a los reportados.
 
 \begin{table}[]
     \centering
@@ -173,13 +166,13 @@ De los valores que se tienen a partir de los datos de contagios obtenidos de la 
 \end{table}
 
 \section{Teorema de Bayes aplicado a pruebas de Covid--19}
-En el caso de las pruebas de Covid--19, se pueden definir algunas variables. Por ejemplo, $H_1:$ ``estoy contagiado de Covid--19''; $E:$ ``la prueba salió positiva''. De este modo, se podría desear averiguar si un paciente tiene Covid--19 dado que recibió una prueba con resultado positivo, esto es $P(H_1|E)$. Por otro lado, $H_2:$ ``no estoy contagiado de Covid--19''. De aquí, se tiene $P(H_1) = \frac{927,115}{1,937,456} = 0.4785$ como la proporción de pacientes con Covid--19 entre todos los que se hicieron la prueba; y $P(H_2) = 1 - P(H_1) = 0.5215$ en tanto la proporción de pacientes no contagiados de Covid--19 de entre los que se hicieron la prueba.
+En el caso de las pruebas de Covid--19, se pueden definir algunas variables. Por ejemplo, $H_1:$ ``estoy contagiado de Covid--19''; $E:$ ``la prueba salió positiva''. De este modo, se podría desear averiguar si un paciente tiene Covid--19 dado que recibió una prueba con resultado positivo, esto es $P(H_1 \mid E)$. Por otro lado, $H_2:$ ``no estoy contagiado de Covid--19''. De aquí, se tiene $P(H_1) = \frac{927,115}{1,937,456} = 0.4785$ como la proporción de pacientes con Covid--19 entre todos los que se hicieron la prueba; y $P(H_2) = 1 - P(H_1) = 0.5215$ en tanto la proporción de pacientes no contagiados de Covid--19 de entre los que se hicieron la prueba.
 
-Así, se pueden obtener algunos otros datos de interés como la proporción de pruebas positivas para los pacientes que sí están infectados $P(E | H_1) = 0.7$ y para los que no lo están $P(E | H_2) = 0.3$.
+Así, se pueden obtener algunos otros datos de interés como la proporción de pruebas positivas para los pacientes que sí están infectados $P(E \mid H_1) = 0.7$ y para los que no lo están $P(E \mid H_2) = 0.3$.
 
-Con estos valores, se puede calcular $P(H_1 | E)$ a partir de la ecuación \ref{bayes} como sigue:
+Con estos valores, se puede calcular $P(H_1 \mid E)$ a partir de la ecuación \ref{bayes} como sigue:
 \begin{equation*}
-    P(H_1 | E) = \frac{P(H_1) P(E|H_1)}{P(H_1) P(E|H_1) + P(H_2) P(E|H_2)} = 0.6816,
+    P(H_1 \mid E) = \frac{P(H_1) P(E \mid H_1)}{P(H_1) P(E \mid H_1) + P(H_2) P(E \mid H_2)} = 0.6816,
 \end{equation*}
 es decir que se tiene una probabilidad de estar contagiado de un $68.16\%$ si es que una prueba sale positiva, a partir de los supuestos aquí descritos.
 
