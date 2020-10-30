@@ -1,0 +1,259 @@
+% https://es.overleaf.com/latex/templates/project-report/jpzczmpsdzwm
+
+%%% Preamble
+\documentclass[paper=leter, fontsize=11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{lmodern}
+\usepackage{hyperref}       % hyperlinks
+\usepackage{lipsum}
+\usepackage[square,numbers]{natbib}
+
+\usepackage[protrusion=true,expansion=true]{microtype}	
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage[pdftex]{graphicx}
+\usepackage{url}
+% https://tex.stackexchange.com/a/3785
+\usepackage{breqn}
+ 
+\usepackage{booktabs}
+\usepackage[table,xcdraw]{xcolor}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,matrix, arrows.meta}
+
+\usepackage{caption} 
+\usepackage{subcaption}
+
+\usepackage{multirow}
+
+\usepackage{listings}
+\lstdefinestyle{mystyle}{ 
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+
+\lstset{style=mystyle}
+\renewcommand{\lstlistingname}{Código}
+
+
+\selectlanguage{spanish}
+\usepackage[spanish,onelanguage,ruled]{algorithm2e}
+
+
+%%% Custom sectioning
+\usepackage{sectsty}
+\allsectionsfont{\centering \normalfont\scshape}
+
+
+%%% Custom headers/footers (fancyhdr package)
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{}											% No page header
+\fancyfoot[L]{}											% Empty 
+\fancyfoot[C]{}											% Empty
+\fancyfoot[R]{\thepage}									% Pagenumbering
+\renewcommand{\headrulewidth}{0pt}			% Remove header underlines
+\renewcommand{\footrulewidth}{0pt}				% Remove footer underlines
+\setlength{\headheight}{13.6pt}
+
+
+%%% Equation and float numbering
+\numberwithin{equation}{section}		% Equationnumbering: section.eq#
+\numberwithin{figure}{section}			% Figurenumbering: section.fig#
+\numberwithin{table}{section}				% Tablenumbering: section.tab#
+
+
+%%% Maketitle metadata
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+
+%%% https://tex.stackexchange.com/a/118217
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\usepackage{amsmath}
+
+\usepackage{tikz}
+
+\title{
+		%\vspace{-1in} 	
+		\usefont{OT1}{bch}{b}{n}
+		\normalfont \normalsize \textsc{Posgrado de Ingeniería de Sistemas} \\ [25pt]
+		\horrule{0.5pt} \\[0.4cm]
+		\huge Teorema de Bayes para datos de Covid-19 \\
+		\horrule{2pt} \\[0.5cm]
+}
+\author{
+		\normalfont 								\normalsize
+        Alberto Benavides\\[-3pt]		\normalsize
+        \today
+}
+\date{}
+
+
+%%% Begin document
+\begin{document} 
+\maketitle
+
+\section*{P. 247, Ex. 1}
+\emph{A card is drawn at random from a deck consisting of cards numbered $2$ through $10$. A player wins $1$ dollar if the number on the card is odd and loses $1$ dollar if the number if even. What is the expected value of his winnings?}
+
+Hay cuatro números impares $3, 5, 7, 9$ y cinco números pares $2, 4, 6, 8, 10$, así que:
+\begin{equation*}
+    E(X) = -1 \times 5 (1/9) + 1 \times 4 (1/9) = -1/9.
+\end{equation*}
+
+\section*{P. 247, Ex. 6}
+\emph{A die is rolled twice. Let $X$ denote the sum of the two numbers that turn up, and Y the difference of the numbers (specifically, the number on the first roll minus the number on the second). Show that $E(X Y) = E(X)E(Y )$. Are $X$ and $Y$ independent?}
+
+El espacio muestral de $X$ está dado por
+\begin{dmath*}
+    \begin{bmatrix}
+        2 & 3 & 4 &  5 &   6 &  7 \\ 
+        3 & 4 & 5 &  6 &   7 &  8 \\ 
+        4 & 5 & 6 &  7 &   8 &  9 \\ 
+        5 & 6 & 7 &  8 &   9 & 10 \\ 
+        6 & 7 & 8 &  9 &  10 & 11 \\ 
+        7 & 8 & 9 & 10 &  11 & 12
+    \end{bmatrix},
+\end{dmath*}
+de donde
+\begin{dmath*}
+    E(X) = \\ 2(\frac{1}{  36}) + 3(\frac{1}{  18}) + 4(\frac{1}{  12}) + 5(\frac{1}{  9}) + 6(\frac{5}{  36}) + 7(\frac{1}{  6}) + 8(\frac{5}{  36}) + 9(\frac{1}{  9}) + 10(\frac{1}{  12}) + 11(\frac{1}{  18}) + 12(\frac{1}{  36}) = 7;
+\end{dmath*}
+el de $Y$ por 
+\begin{dmath*}
+    \begin{bmatrix}
+        0 & -1 & -2 & -3 & -4 & -5 \\ 
+        1 &  0 & -1 & -2 & -3 & -4 \\ 
+        2 &  1 &  0 & -1 & -2 & -3 \\ 
+        3 &  2 &  1 &  0 & -1 & -2 \\ 
+        4 &  3 &  2 &  1 &  0 & -1\\ 
+        5 &  4 &  3 &  2 &  1 &  0
+    \end{bmatrix},
+\end{dmath*}
+así que
+\begin{dmath*}
+    E(X) = (-5)(\frac{1}{ 36}) + (-4)(\frac{1}{ 18}) + (-3)(\frac{1}{ 12}) + (-2)(\frac{1}{ 9}) + (-1)(\frac{5}{ 36}) + 0(\frac{1}{ 6}) + 1(\frac{5}{ 36}) + 2(\frac{1}{ 9}) + 3(\frac{1}{ 12}) + 4(\frac{1}{ 18}) + 5(\frac{1}{ 36}) = 0;
+\end{dmath*}
+y el de $XY$ por
+\begin{dmath*}
+    \begin{bmatrix}
+        0 &  -3 &  -8 & -15 & -24 & -35 \\ 
+        3 &   0 &  -5 & -12 & -21 & -32 \\ 
+        8 &   5 &   0 &  -7 & -16 & -27 \\ 
+       15 &  12 &   7 &   0 &  -9 & -20 \\ 
+       24 &  21 &  16 &   9 &   0 & -11 \\ 
+       35 &  32 &  27 &  20 &  11 &   0
+    \end{bmatrix}
+\end{dmath*}
+que, como sigue un patrón similar al espacio muestral de $Y$, puede verse que la suma de las variables multiplicadas por su probabilidad se van a contrarrestar, por lo que
+\begin{dmath*}
+    E(XY) = 0,
+\end{dmath*}
+de donde resulta que que $E(XY) = E(X) E(Y)$ y por el teorema 6.4 se puede concluir que son independientes.
+
+\section*{P. 249, E. 15}
+\emph{A box contains two gold balls and three silver balls. You are allowed to choose successively balls from the box at random. You win 1 dollar each time you draw a gold ball and lose 1 dollar each time you draw a silver ball. After a draw, the ball is not replaced. Show that, if you draw until you are ahead by 1 dollar or until there are no more gold balls, this is a favorable game.}
+
+Suponiendo que O son bolas de oro y P de plata, el orden en que se pueden sacar las bolas, señalado en rojo hasta donde se acaba o detiene el juego y seguido por la ganancia total es
+\begin{itemize}
+    \item \color{red}O \color{black} O P P P $= 1$,
+    \item \color{red}O \color{black} P O P P $= 1$,
+    \item \color{red}O \color{black} P P O P $= 1$,
+    \item \color{red}O \color{black} P P P O $= 1$,
+    \item \color{red}P O O \color{black} P P $= 1$,
+    \item \color{red}P O P O \color{black} P $= 0$,
+    \item \color{red}P O P P O \color{black} $= -1$,
+    \item \color{red}P P O O \color{black} P $= 0$,
+    \item \color{red}P P O P O \color{black} $= -1$,
+    \item \color{red}P P P O O \color{black} $= -1$.
+\end{itemize}
+
+A partir de esto, el $E(X) = 1 (\frac{5}{10}) -1 (\frac{3}{10}) = \frac{1}{5}$.
+
+\section*{P. 249, E. 18}
+\emph{Exactly one of six similar keys opens a certain door. If you try the keys, one after another, what is the expected number of keys that you will have to try before success?}
+
+Para esto, primero se calculan las distribuciones para cada caso:
+\begin{dmath*}
+    {P(X = 0) = \frac{1}{6}}, \\
+    {P(X = 1) = \frac{5}{6} \frac{1}{5} = \frac{1}{6}}, \\
+    {P(X = 2) = \frac{5}{6} \frac{4}{5} \frac{1}{4} = \frac{1}{6}}, \\
+    {P(X = 3) = \frac{5}{6} \frac{4}{5} \frac{3}{4} \frac{1}{3} = \frac{1}{6}}, \\
+    {P(X = 4) = P(X = 5) = \frac{5}{6} \frac{4}{5} \frac{3}{4} \frac{2}{3} \frac{1}{2} = \frac{1}{6}}.
+\end{dmath*}
+Con ello, se puede calcular
+\begin{dmath*}
+    E(X) = {0 P(X = 0) + 1 P(X = 1) + 2 P(X = 2) + 3 P(X = 3) + 4 P(X = 4) + 5 P(X = 5)} 
+         = \frac{1}{6} (15)
+         = \frac{5}{2}.
+\end{dmath*}
+
+\section*{P. 249, E. 19}
+\emph{A multiple choice exam is given. A problem has four possible answers, and exactly one answer is correct. The student is allowed to choose a subset of the four possible answers as his answer. If his chosen subset contains the correct answer, the student receives three points, but he loses one point for each wrong answer in his chosen subset. Show that if he just guesses a subset uniformly and randomly his expected score is zero.}
+
+Los subconjuntos que se pueden elegir son de:
+
+\begin{itemize}
+    \item 0 respuestas: Nunca gana puntos; $E(X = 0) = 3 (0) = 0$.
+    \item 1 respuesta:  Gana 3 puntos $1/4$ de las veces y pierde 1 punto $3/4$ de las veces; $E(X = 1) = 3 \frac{1}{4} - 1 \frac{3}{4} = 0$.
+    \item 2 respuestas: La mitad de las veces gana 2 puntos y la otra mitad pierde 2 puntos; $E(X = 2) = 2 \frac{1}{2} -2 \frac{1}{2} = 0$ porque
+    \begin{itemize}
+        \item elige una respuesta correcta (3 puntos) y otra incorrecta (-1 punto), con total de 2 puntos;
+        \item elige dos respuestas incorrectas, con total de -2 puntos.
+    \end{itemize}
+    \item 3 respuestas: Tres cuartos de las veces elige entre las respuestas una correcta y un cuarto de las veces la deja fuera; $E(X = 3) = 1 \frac{3}{4} -3 \frac{1}{4} = 0$ porque
+    \begin{itemize}
+        \item elige una respuesta correcta (3 puntos) y dos incorrectas (-2 puntos), con total de 1 punto;
+        \item elige todas las respuestas incorrectas, con total de -3 puntos
+    \end{itemize}
+    \item 4 respuestas: Siempre elige la correcta y las tres incorrectas; $E(X = 4) = 3 (1) - 3 (1) = 0$.
+\end{itemize}
+
+\section*{P. 263, E. 1}
+\emph{A number is chosen at random from the set \( S = \lbrace -1, 0, 1 \rbrace \). Let \(X\) be the number chosen. Find the expected value, variance, and standard deviation of \(X\).}
+\begin{itemize}
+    \item $E(X) = \frac{1}{3} (-1 + 0 + 1) = 0$.
+    \item $V(X) = E(X^2) - E(X)^2 = \frac{1}{3}((-1)^2 + 0^2 + 1^2) - 0^2 = \frac{2}{3}$.
+    \item $D(X) = \sqrt{V(X)} = \sqrt{\frac{2}{3}}$.
+\end{itemize}
+
+\section*{P. 264, E. 9}
+\emph{A die is loaded so that the probability of a face coming up is proportional to the number on that face. The die is rolled with outcome $X$. Find $V(X)$ and $D(X)$.}
+
+Supongamos que $t$ es el total de la suma de proporciones de los dados, de modo que, por ejemplo, la probabilidad de que salga uno es $\frac{1}{t}$, dos sería $\frac{2}{t}$ hasta $\frac{6}{t}$. De esta forma, $t = 1 + 2 + 3 + 4 + 5 + 6 = 21$. Con esto se puede calcular
+\begin{itemize}
+    \item $E(X) = 1 \frac{1}{21} + 2 \frac{2}{21} + 3 \frac{3}{21} + 4 \frac{4}{21} + 5 \frac{5}{21} + 6 \frac{6}{21} = \frac{13}{3}$.
+    \item $V(X) = E(X^2) - E(X)^2 = 1^2 \frac{1}{21} + 2^2 \frac{2}{21} + 3^2 \frac{3}{21} + 4^2 \frac{4}{21} + 5^2 \frac{5}{21} + 6^2 \frac{6}{21} - \frac{13}{3} = 21 - \frac{13}{3}^2 = 20 / 9$.
+    \item $D(X) = \sqrt{V(X)} = \sqrt{\frac{20}{9}} = \sqrt{5}\frac{2}{3}$.
+\end{itemize}
+
+
+\section*{P. 278, E. 3}
+\emph{The lifetime, measure in hours, of the ACME super light bulb is a random variable T with density function \(f_T (t) = \lambda^2 te^{- \lambda t}\), where \(\lambda = 0.05\). What is the expected lifetime of this light bulb? What is its variance?}
+
+En este caso, en lugar de calcular desde $-\infty$, se calcula desde $0$ puesto que no existen tiempos negativos para duraciones, así que
+\begin{dmath*}
+    E(T) = \int^{\infty}_{0}t\cdot \lambda^{2}te^{-\lambda t}dt = \lambda^{2}\left (- \frac{e^{-\lambda t}(\lambda^{2}t^{2} + 2\lambda t + 2)}{\lambda^{3}} \right )|^{\infty}_{0} 
+         = {\frac{2}{\lambda} = \frac{2}{0.05} = 40}.
+\end{dmath*}
+
+Por último,
+\begin{dmath*}
+    E(T^2) = \int^{\infty}_{0}t^{3}\cdot \lambda^{2}te^{-\lambda t}dt = \lambda^{2} \left (- \frac{e^{-\lambda t}(\lambda^{3}t^{3} + 3\lambda^{2}t^{2} + 6\lambda t + 6)}{\lambda^{4}} \right ) = \frac{6}{\lambda^{2}} = 2400,
+\end{dmath*}
+y la varianza $V(T) = E(T^2) - E(T)^2 = 2400 - 40^2 = 800$.
+
+\end{document}
