@@ -104,10 +104,10 @@
 \maketitle
 
 \section{Sobre los datos}
-Los datos para esta tarea provienen del tema de tesis que actualmente trabajo: relación entre contaminantes y enfermedades en el \emph{área metropolitana de Monterrey} (AMM). Los datos de los contaminantes fueron obtenidos del SIMA \citep{aireNL}, mientras que los datos de las enfermedades provienen de la página de la Secretaría de Salud de Méxito \citep{egresos}. Los datos de contaminantes fueron tomados cada segundo por las distintas trece estaciones de monitoreo ambiental ubicadas en el AAM e incluyen concentraciones de algunos contaminantes, de los que se destacan los que tienen tamaños de partículas de $10$ PM medidas en $\mu$g $/$ m$^3$, en tanto que los datos de las enfermedades contienen información sobre la edad, género, talla, enfermedad y, dato de principal interés para esta tarea, la fecha en la que se dio la consulta de cada caso.
+Los datos para esta tarea provienen del tema de tesis que actualmente trabajo: relación entre contaminantes y enfermedades en el \emph{área metropolitana de Monterrey} (AMM). Los datos de los contaminantes fueron obtenidos del SIMA \citep{aireNL}, mientras que los datos de las enfermedades provienen de la página de la Secretaría de Salud de México \citep{egresos}. Los datos de contaminantes fueron tomados cada segundo por las distintas trece estaciones de monitoreo ambiental ubicadas en el AAM e incluyen concentraciones de algunos contaminantes, de los que se destacan los que tienen tamaños de partículas de $10$ PM medidas en $\mu$g $/$ m$^3$, en tanto que los datos de las enfermedades contienen información sobre la edad, género, talla, enfermedad y, dato de principal interés para esta tarea, la fecha en la que se dio la consulta de cada caso.
 
 \section{Preprocesamiento de los datos}
-A ambos conjuntos de datos se les eliminaron las inconsistencias como valores fuera de rangos permitidos o la ausencia de valores, posteriormente se obtuvieron sólo concentraciones de contaminantes y consultas del año 2017 por ser el año en que se hallan datos más completos. Posteriormente, se agruparon estos datos semanalmente, obteniendo el promedio semanal de las concentraciones de partículas de $10$ PM y la suma de todos los casos de consultas registradas, ambos datos mostrados en la figura \ref{datos} (p. \pageref{datos}).
+A ambos conjuntos de datos se les eliminaron las inconsistencias como valores fuera de rangos permitidos o la ausencia de valores, posteriormente se obtuvieron sólo concentraciones de contaminantes y consultas del año 2017 por ser el año en que se hallan datos más completos. Después, se agruparon estos datos semanalmente, obteniendo el promedio semanal de las concentraciones de partículas de $10$ PM y la suma de todos los casos de consultas registradas, ambos datos mostrados en la figura \ref{datos} (p. \pageref{datos}).
 
 \begin{figure}
   \begin{subfigure}{.5\textwidth}
@@ -124,7 +124,7 @@ A ambos conjuntos de datos se les eliminaron las inconsistencias como valores fu
   \label{datos}
 \end{figure}
 
-Una práctica común para comparar series de tiempo es normalizarlas y diferenciarlas mediante la resta de cada valor, menos su valor en una unidad de tiempo anterior, lo que hace que la serie de tiempo resultante tenga valores en torno a cero con valores de $[-1, 1]$, como puede verse en la figura \ref{diff} (p. \pageref{diff}).
+Una práctica común para comparar series de tiempo es normalizarlas y diferenciarlas mediante la resta de cada valor, menos su valor en una unidad de tiempo anterior, lo que hace que la serie de tiempo resultante tenga valores en torno a cero entre $[-1, 1]$, como puede verse en la figura \ref{diff} (p. \pageref{diff}).
 
 \begin{figure}
     \centering
@@ -135,14 +135,14 @@ Una práctica común para comparar series de tiempo es normalizarlas y diferenci
 
 \section{Chi cuadrada}
 
-La prueba de Chi cuadrada tiene dos usos principales: Determinar la independencia entre conjuntos de datos y conocer si valores observados son similares a valores esperados. En este caso, se utiliza la prueba de Chi cuadrada para determinar si los valores diferenciados y normalizados de los contaminantes son independientes de los de las consultas de las enfermedades registradas y, también, si los casos registrados observados son similares a los esperados, tomados estos últimos como las concentraciones en promedio de las partículas de $10$ PM. 
+La prueba de Chi cuadrada tiene dos usos principales: Determinar la independencia entre conjuntos de datos y conocer si valores observados son similares a valores esperados (a esto último se le llama prueba de ajuste). En este caso, se utiliza la prueba de Chi cuadrada para determinar si los valores diferenciados y normalizados (como lo sugieren \citet{diff}) de los contaminantes son independientes de los de las consultas de las enfermedades registradas y, también, si los casos registrados observados son similares a los esperados, tomados estos últimos como las concentraciones en promedio de las partículas de $10$ PM. 
 
-Para el caso de la independencia, la hipótesis nula es que ambas variables son independientes. El $p$-valor obtenido es $1$ por lo que se acepta la hipótesis nula. Mientras que para el grado de similitud, la hipótesis nula es que los valores observados y esperados no tienen diferencia, pero ésta hipótesis se rechaza dado que el $p$-valor $= 6.07 \times 10 ^{-175}$.
+Para el caso de la independencia, la hipótesis nula es que ambas variables son independientes. El $p$-valor obtenido es $1$ por lo que se acepta la hipótesis nula. Mientras que para la prueba de ajuste, la hipótesis nula es que los valores observados y esperados no tienen diferencia, pero ésta hipótesis se rechaza dado que el $p$-valor $= 6.07 \times 10 ^{-175}$.
 
 \section{Convolución}
 
 Una convolución muestra la distribución de probabilidad $Z$ de la suma de dos variables aleatorias $X$ y $Y$ tal que $P(Z = j) = \sum_{i =
--\infty}^\infty P(X = i) \times P(Y = j - i)$. Para el caso discreto, esto se puede calcular como $f_c(i) = \sum_j f_1(j) \times f_2(i - j)$, en tanto para el continuo se tiene $(f \ast g)(z) = \int_{-\infty}^\infty f(z - x) \times g(x) \text{d} x$. Este concepto de convolución también se puede utilizar para conocer las interacciones entre dos series de tiempo de modo que se obtiene el grado de relación de una respecto a la otra desfasada en el tiempo. La convolución de las series de tiempo diferenciadas puede verse en la figura \ref{conv} (p. \pageref{conv}).
+-\infty}^\infty P(X = i) \times P(Y = j - i)$. Para el caso discreto, esto se puede calcular como $f_c(i) = \sum_j f_1(j) \times f_2(i - j)$, en tanto para el continuo se tiene $(f \ast g)(z) = \int_{-\infty}^\infty f(z - x) \times g(x) \text{d} x$. Este concepto de convolución también se puede utilizar para conocer las interacciones entre señales o, en este caso, series de tiempo de modo que se obtiene el área común a ambas series de tiempo, es decir, el grado de relación de una (fija) respecto a la otra (que se desplaza en el tiempo). La convolución de las series de tiempo diferenciadas puede verse en la figura \ref{conv} (p. \pageref{conv}).
 
 \begin{figure}
   \centering
@@ -151,8 +151,41 @@ Una convolución muestra la distribución de probabilidad $Z$ de la suma de dos 
 \label{conv}
 \end{figure}
 
+\section{Propiedades de la varianza}
+Existen dos propiedades de la varianza, a saber $\text{Cov}[aX + b, cY + d] = ac \text{Cov}[X, Y]$ y $\text{Var}[X + Y] = \text{Var}[X] + \text{Var}[Y] + 2 \text{Cov}[X, Y]$ que pueden demostrarse numéricamente al generar dos conjuntos de variables aleatorias $X \sim \mathcal{U}(0,1)$ y $Y \sim \mathcal{B} (100, 0.05)$ de mil valores cada uno. Los histogramas de estos conjuntos aparecen en la figura \ref{XY} (p. \pageref{XY}). Para comprobar esto, se toman enteros aleatorios entre $[-10, 10]$ para $a, b, c, d$ y mediante las funciones \texttt{var} y \texttt{cov} de R, que se utilizan para calcular la varianza y covarianza en ese orden, se comprueba que ambas propiedades se cumplen, como se muestra en el código \ref{prop}
 
-\bibliographystyle{plainnat}
+\begin{lstlisting}[caption={Demostración numérica de propiedades de varianza y covarianza}, captionpos=t, label=prop]
+  X = runif(1000)
+  Y = rbinom(1000, 100, 0.05)
+
+  a = sample(-10:10, 1)
+  b = sample(-10:10, 1)
+  c = sample(-10:10, 1)
+  d = sample(-10:10, 1)
+
+  cov(a * X + b, c * Y + d) == a * c * cov(X, Y)
+  # TRUE
+
+  var(X + Y) == var(X) + var(Y) + 2 * cov(X, Y)
+  # TRUE
+  \end{lstlisting}
+
+\begin{figure}
+  \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[scale=0.4]{X.pdf}
+      \caption{$X$.}
+  \end{subfigure}
+  \begin{subfigure}{0.5\textwidth}
+      \centering
+      \includegraphics[scale=0.4]{Y.pdf}
+      \caption{$Y$.}
+  \end{subfigure}
+  \caption{Histogramas de mil valores aleatorios para $X \sim \mathcal{U}(0,1)$ y $Y \sim \mathcal{B} (100, 0.05)$.}
+  \label{XY}
+\end{figure}
+
+\bibliographystyle{mighelnat}
 \bibliography{Biblio}
 
 \end{document}
