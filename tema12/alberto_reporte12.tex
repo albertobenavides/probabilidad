@@ -233,8 +233,42 @@ Show that if $p_0 > 1 / 2$, you cannot expect to make a profit.
            = \frac{e^{2t}(2t - 1) + 1}{2t^2}.
   \end{dmath*}
   \item $f_X (x) = 1 - \frac{1}{2}x$.
+  \begin{dmath*}
+    g_X(t) = \int_{0}^{2} e^{tx} \cdot (1 - \frac{1}{2}x) dx
+           = -\frac{1}{2} \int_0^2 (x  - 2) e^{tx} dx
+           = {-\frac{1}{2} \left[ (x - 2) \frac{e^{tx}}{t} - \int_0^2 (1) \frac{e^{tx}}{t} dx \right] ; u = tx \rightarrow \frac{du}{dx} = t \rightarrow dx = \frac{du}{t}}
+           = -\frac{1}{2} \left[ \frac{(x - 2) e^{tx}}{t} - \frac{1}{t^2} \int_0^2 e^{u} du \right]
+           = -\frac{1}{2} \left[ \left. \frac{(x - 2) e^{tx}}{t} - \frac{e^{tx}}{t^2} \right|_0^2 \right]
+           = -\frac{1}{2} \left[ \left. \frac{(x - 2) t e^{tx} - e^{tx}}{t^2} \right|_0^2 \right]
+           = -\frac{1}{2} \left[ \left. \frac{e^{tx}[t(x - 2) - 1]}{t^2} \right|_0^2 \right]
+           = -\frac{1}{2} \left[ \left( \frac{e^{2t}[t(2 - 2) - 1]}{t^2} \right) - \left( \frac{e^{0t}[t(0 - 2) - 1]}{t^2} \right) \right]
+           = -\frac{1}{2} \left[ \left( \frac{-e^{2t}}{t^2} \right) - \left( \frac{-2t - 1}{t^2} \right) \right]
+           = -\frac{1}{2} \left[ \frac{-e^{2t} + 2t + 1}{t^2} \right]
+           = \frac{e^{2t} - 2t - 1}{2t^2}
+  \end{dmath*}
+
   \item $f_X (x) = |1 - x|$.
+  \begin{dmath*}
+    g_X(t) = \int_{0}^{2} e^{tx} |1 - x| dx
+           = \int _0^1\left(1-x\right)e^{tx}dx+\int _1^2\left(-1+x\right)e^{tx}dx
+           = \frac{e^t-1}{t}-\frac{e^t}{t}+\frac{e^t}{t^2}-\frac{1}{t^2}-\frac{e^{2t}-e^t}{t}+\frac{2e^{2t}}{t}-\frac{e^{2t}}{t^2}-\frac{e^t}{t}+\frac{e^t}{t^2}
+           = \frac{t(e^t-1) - t(e^t) + e^t - 1 - t(e^{2t}-e^t) + t(2e^{2t}) - e^{2t} - t(e^t) + e^t}{t^2}
+           = \frac{te^t - t - te^t + e^t - 1 - te^{2t} + te^t + 2te^{2t} - e^{2t} - te^t + e^t}{t^2}
+           = \frac{-t + 2e^t - 1 + te^{2t} - e^{2t}}{t^2}
+           = \frac{2e^t - t - 1 + e^{2t}(t - 1)}{t^2}
+  \end{dmath*}
   \item $f_X (x) = \frac{3}{8}x^2$.
+  \begin{dmath*}
+    g_X(t) = \int_{0}^{2} e^{tx} (\frac{3}{8}x^2) dx
+           = \frac{3}{8}\cdot \int _0^2e^{tx}x^2dx
+           = \frac{3}{8}\left[\frac{e^{tx} x^2}{t} - \int \:\frac{2e^{tx} x}{t}dx\right]^2_0
+           = \frac{3}{8}\left[\frac{e^{tx} x^2}{t} - \frac{2}{t}\left(\frac{e^{tx} x}{t}-\frac{e^{tx}}{t^2}\right)\right]^2_0
+           = \frac{3}{8}\left(\frac{4e^{2t}}{t} - \frac{2}{t}\left(\frac{2e^{2t}}{t}-\frac{e^{2t}}{t^2}\right)-\frac{2}{t^3}\right)
+           = \frac{3}{8}\left(\frac{4e^{2t}}{t} - \frac{4e^{2t}}{t^2} + \frac{2e^{2t}}{t^3} - \frac{2}{t^3}\right)
+           = \frac{3}{8}\left(\frac{4t^2e^{2t} - 4te^{2t} + 2e^{2t} - 2}{t^3}\right)
+           = \frac{3}{8}\left(\frac{2e^{2t} (2t^2 - 2t + 1) - 2}{t^3}\right)
+           = \frac{3}{4}\left(\frac{e^{2t} (2t^2 - 2t + 1) - 1}{t^3}\right)
+  \end{dmath*}
 \end{enumerate}
 
 \begin{ex}[P. 402, e. 6]
@@ -243,6 +277,12 @@ Show that if $p_0 > 1 / 2$, you cannot expect to make a profit.
       f_X(x) = \frac{1}{\pi (1+x^2)}.
   \end{equation*}
 \end{ex}
+
+\begin{dmath*}
+  f_{X}(x) = \frac{1}{2\pi} \int_{-\infty}^{\infty} e^{-i \tau } e^{- |\tau|} d^\tau
+           = \frac{1}{2\pi} \int _{-\infty \:}^0e^{-i \tau - (-\tau)} d\tau + \frac{1}{2\pi} \int _0^{\infty \:}e^{-i \tau - \tau} d\tau
+           = \frac{1}{2\pi} \int _{-\infty \:}^0e^{\tau(-i + 1)} d\tau + \frac{1}{2\pi} \int _0^{\infty \:}e^{\tau (-i - 1)} d\tau
+\end{dmath*}
 
 \begin{ex}[P. 403, e. 10]
   Let $X_1, X_2, \ldots, X_n$ be an indepentent trials process with density
