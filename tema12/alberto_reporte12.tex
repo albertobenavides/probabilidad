@@ -282,9 +282,9 @@ Show that if $p_0 > 1 / 2$, you cannot expect to make a profit.
   f_{X}(x) = \frac{1}{2\pi} \int_{-\infty}^{\infty} e^{-i x \tau } e^{- |\tau|} d\tau
            = \frac{1}{2\pi} \left[ \int _{-\infty}^0 e^{-i x \tau - (-\tau)} d\tau + \int _0^{\infty}e^{-i x \tau - \tau} d\tau \right]
            = \frac{1}{2\pi} \left[ \int _{-\infty}^0 e^{\tau -i x \tau} d\tau + \int _0^{\infty}e^{-i x \tau - \tau} d\tau \right]
-           = \frac{1}{2\pi} \left[ \frac{1}{1 - ix} \int _{-\infty}^0 e^{u} du - \frac{1}{ix + 1} \int _0^{\infty}e^{v} dv \right]
-           = \frac{1}{2\pi} \left[ \frac{1}{1 - ix} - \frac{1}{ix + 1} \right]
-           = \frac{1}{2\pi} \left[ \frac{ix + 1}{i^2x^2 - 1^2} - \frac{1 - ix}{i^2x^2 - 1^2} \right]
+           = \frac{1}{2\pi} \left[ \frac{1}{1 - ix} \int _{-\infty}^0 e^{u} du - \frac{1}{1 + ix} \int _0^{\infty}e^{v} dv \right]
+           = \frac{1}{2\pi} \left[ \frac{1}{1 - ix} - \frac{1}{1 + ix} \right]
+           = \frac{1}{2\pi} \left[ \frac{1 + ix}{i^2x^2 - 1^2} - \frac{1 - ix}{1^2 - i^2x^2} \right]
            = \frac{1}{2\pi} \left[ \frac{ix + 1 -ix + 1}{1^2 - i^2x^2} \right]
            = \frac{1}{2\pi} \left[ \frac{2}{1 + x^2} \right]
            = \frac{1}{\pi (1+x^2)}.
