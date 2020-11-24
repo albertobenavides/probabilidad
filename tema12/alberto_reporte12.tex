@@ -1,0 +1,263 @@
+% https://es.overleaf.com/latex/templates/project-report/jpzczmpsdzwm
+
+%%% Preamble
+\documentclass[paper=leter, fontsize=11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{lmodern}
+\usepackage{hyperref}       % hyperlinks
+\usepackage{lipsum}
+\usepackage[square,numbers]{natbib}
+\usepackage{enumitem}
+
+\usepackage[protrusion=true,expansion=true]{microtype}	
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage[pdftex]{graphicx}
+\usepackage{url}
+% https://tex.stackexchange.com/a/3785
+\usepackage{breqn}
+ 
+\usepackage{booktabs}
+\usepackage[table,xcdraw]{xcolor}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,matrix, arrows.meta}
+
+\usepackage{caption} 
+\usepackage{subcaption}
+
+\usepackage{multirow}
+
+\usepackage{listings}
+\lstdefinestyle{mystyle}{ 
+    language=R,
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\renewcommand{\lstlistingname}{Código}
+
+
+\selectlanguage{spanish}
+\usepackage[spanish,onelanguage,ruled]{algorithm2e}
+
+
+%%% Custom sectioning
+\usepackage{sectsty}
+\allsectionsfont{\centering \normalfont\scshape}
+
+
+%%% Custom headers/footers (fancyhdr package)
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{}											% No page header
+\fancyfoot[L]{}											% Empty 
+\fancyfoot[C]{}											% Empty
+\fancyfoot[R]{\thepage}									% Pagenumbering
+\renewcommand{\headrulewidth}{0pt}			% Remove header underlines
+\renewcommand{\footrulewidth}{0pt}				% Remove footer underlines
+\setlength{\headheight}{13.6pt}
+
+
+%%% Equation and float numbering
+%\numberwithin{equation}{section}		    % Equationnumbering: section.eq#
+%\numberwithin{figure}{section}			    % Figurenumbering: section.fig#
+%\numberwithin{table}{section}				% Tablenumbering: section.tab#
+
+%\newtheorem{thm}{Theorem}
+%\newtheorem{prop}{Proposition}
+%\newtheorem{lemma}{Lemma}
+\newtheorem{ex}{Exercise}
+
+%%% Maketitle metadata
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+
+%%% https://tex.stackexchange.com/a/118217
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\title{
+		%\vspace{-1in} 	
+		\usefont{OT1}{bch}{b}{n}
+		\normalfont \normalsize \textsc{Posgrado de Ingeniería de Sistemas} \\ [25pt]
+		\horrule{0.5pt} \\[0.4cm]
+		\huge Ejercicios Procesos de ramificación \\
+		\horrule{2pt} \\[0.5cm]
+}
+\author{
+		\normalfont 								\normalsize
+        Alberto Benavides\\[-3pt]		\normalsize
+        \today
+}
+\date{}
+
+
+%%% Begin document
+\begin{document} 
+\maketitle
+
+\begin{ex}[P. 392, e. 1]
+  Let $Z_1, Z_2, \ldots, Z_n$ describe a branching process in which each parent has $j$ offspring with probability $p_j$. Find the probability $d$ that the process eventually dies out if
+\end{ex}
+\begin{enumerate}[label=(\alph*)]
+  \item $p_0 = 1 / 2, p_1 = 1 / 4, p_2 = 1 / 4$.
+  
+  Para este caso, el número esperado de hijos es $m = h'(1) = p_1 + 2p_2 = 1 / 4 + 2 (1 / 4) = 3 / 4 \leq 1$, por lo que por el teorema 10.2, $d = 1$ así que el proceso o herencia o apellido se acabará.
+  
+  \item $p_0 = 1 / 3, p_1 = 1 / 3, p_2 = 1 / 3$.
+  
+  Igual que el inciso anterior, $m = 1 / 3 + 2(1 / 3) = 1 \leq 1$, así que $d = 1$.
+
+  \item $p_0 = 1 / 3, p_1 = 0, p_2 = 2 / 3$.
+  
+  Aquí, $m = 0 + 2 (2 / 3) = 4 / 3 > 1$, pero como $p_0 < p_2$ se puede obtener $d = p_0 / p_2 = \frac{1 / 3}{2 / 3} = 1 / 2$.
+
+  \item $p_j = 1 / 2^{j + 1}$, for $j = 0, 1, 2, \ldots$
+  
+  En este inciso,
+  \begin{dmath*}
+    h(z) = p_0 + p_1z + p_2z^2 + p_3z^3 + \ldots
+      = 1 / 2^{0 + 1} + 1 / 2^{1 + 1}z + 1 / 2^{2 + 1}z^2 + 1 / 2^{3 + 1}z^3 + \ldots 
+      = 1 / 2^{1} + 1 / 2^{2}z + 1 / 2^{3}z^2 + 1 / 2^{4}z^3 + \ldots
+      = \frac{1}{2} (1 / 2^{1} + 1 / 2^{2}z + 1 / 2^{3}z^2 + 1 / 2^{4}z^3 + \ldots) / \frac{1}{2}
+      = \frac{1}{2} (1 + 1 / 2^{1}z + 1 / 2^{2}z^2 + 1 / 2^{3}z^3 + \ldots)
+      = \frac{1}{2} \left(\frac{1}{1 - \frac{1}{2} z}\right)
+      = \frac{1}{2 - z}.
+  \end{dmath*}
+
+  Si esto es verdad, entonces
+  \begin{dmath*}
+    h'(z) = \frac{d}{dz} \left( \frac{1}{2 - z} \right)
+          = \frac{- \frac{d}{dz} \left( 2 - z \right)}{(2 - z)^2}
+          = \frac{1}{(2 - z)^2}
+  \end{dmath*}
+  por lo que, como $m = h'(1) = \frac{1}{(2 - 1)^2} = 1 \leq 1$, $d = 1$.
+
+  \item $p_j = (1 / 3) (2/3)^j$, for $j = 0, 1, 2, \ldots$
+  
+  De manera análoga al inciso precedente,
+  \begin{dmath*}
+    h(z) = p_0 + p_1z + p_2z^2 + p_3z^3 + \ldots
+      = \frac{1}{3} \left(\frac{2}{3}\right)^{0} + \frac{1}{3} \left(\frac{2}{3}\right)^1 z^1 + \frac{1}{3} \left(\frac{2}{3}\right)^2 z^2 + \frac{1}{3} \left(\frac{2}{3}\right)^3 z^3 \ldots 
+      = \frac{1}{3} \left[1 + \left(\frac{2}{3}\right)^1 z^1 + \left(\frac{2}{3}\right)^2 z^2 + \left(\frac{2}{3}\right)^3 z^3 \ldots\right]
+      = \frac{1}{3} \left(\frac{1}{1 - \frac{2}{3} z}\right)
+      = \frac{1}{3 - 2z}.
+  \end{dmath*}
+  de donde 
+  \begin{dmath*}
+    h'(z) = \frac{d}{dz} \left( \frac{1}{3 - 2z} \right)
+          = \frac{- \frac{d}{dz} \left( 3 - 2z \right)}{(3 - 2z)^2}
+          = \frac{2}{(3 - 2z)^2}
+  \end{dmath*}
+  por lo que $m = h'(1) = \frac{2}{(3 - 2)^2} = \frac{2}{(1)^2} = 2$ y $d < 1$ cuando $z \neq 1$. Para calcular esta $d$ se obtienen las raíces a partir de igualar $z = h(z)$, así que
+  \begin{dmath*}
+    z = \frac{1}{3 - 2z}
+  \end{dmath*}
+  \begin{dmath*}
+    2z^2 - 3z + 1 = 0
+  \end{dmath*}
+  de donde $z_1 = 1$ (ya conocida) y $z_2 = 1/2 = d$.
+
+  \item $p_j = e^{-2} 2^j / j!$, for $j = 0, 1, 2, \ldots$ (estimate $d$ nummerically).
+  
+  Finalmente, $d = 0.2032$. Esto se obtiene mediante el código \ref{prop2}
+
+\begin{lstlisting}[caption={Aproximación}, captionpos=t, label=prop2]
+p = function(j){
+  return( exp(-2) * 2 ** j / factorial(j) )
+}
+d = p(0)
+for (m in 1:1000){
+  sum = 0
+  for (j in 0:100){
+    sum = sum + p(j) * (d ** j)
+  }
+  d = sum
+}
+d
+# 0.2031878699799799
+\end{lstlisting}
+
+\end{enumerate}
+
+\begin{ex}[P. 392, e. 3]
+  In the chain letter problem (see Example 10.14) find your expected profit if
+\end{ex}
+\begin{enumerate}[label=(\alph*)]
+  \item $p_0 = 1 / 2, p_1 = 0, p_2 = 1 / 2$.
+  
+  Como $m = p_1 + 2p_2 = 0 + 2(1/2) = 1$, entonces se espera una ganancia de $50 (1 + 1^{12}) - 100 = 0$.
+  
+  \item $p_0 = 1 / 6, p_1 = 1 / 2, p_2 = 1 / 3$.
+  
+  Aquí $m = p_1 + 2p_2 = 1/2 + 2(1/3) = 7 / 6$, entonces se espera una ganancia de $50 (7/6 + (7/6)^{12}) - 100 \approx 276.26$.
+\end{enumerate}
+Show that if $p_0 > 1 / 2$, you cannot expect to make a profit.
+
+\begin{ex}[P. 401, e. 1]
+  Let $X$ be a continuous random variable with values in $[0,2]$ and density $f_X$. Find the moment generating function $g(t)$ for $X$ if \setlength{\parskip}{0cm}
+\end{ex}
+\begin{enumerate}[label=(\alph*)]
+  \item $f_X(x) = \frac{1}{2}$.
+  \begin{dmath*}
+    g_X(t) = \int_{0}^{2} e^{tx} \cdot \frac{1}{2} dx
+           = {\int_{0}^{2} \frac{e^{tx}}{2} dx ; u = tx \rightarrow \frac{du}{dx} = t \rightarrow dx = \frac{du}{t}}
+           = \frac{1}{2t} \int_{0}^{2} e^u du
+           = {\frac{1}{2t} \left. e^tx \right| _0^2 = \frac{1}{2t} (e^{2t} - e^0)}
+           = \frac{e^{2t} - 1}{2t}.
+  \end{dmath*}
+
+  \item $f_X (x) = \frac{1}{2}x$.
+  \begin{dmath*}
+    g_X(t) = \int_{0}^{2} e^{tx} \cdot \frac{1}{2}x dx
+           = \frac{1}{2} \int_{0}^{2} x e^{tx} dx
+           = {\frac{1}{2} \left[\frac{x e^{tx}}{t} - \int_0^2 \left( (1) \frac{e^{tx}}{t} \right)\right] dx ; u = tx \rightarrow \frac{du}{dx} = t \rightarrow dx = \frac{du}{t}}
+           = \frac{1}{2} \left[\frac{x e^{tx}}{t} - \int_0^2 \frac{e^{u}}{t^2} du\right]
+           = \frac{1}{2} \left[\frac{x e^{tx}}{t} - \frac{1}{t^2} \int_0^2 e^{tx} dx\right]
+           = \frac{1}{2} \left[\left. \frac{x e^{tx}}{t} - \frac{e^{tx}}{t^2} \right|_0^2\right]
+           = \frac{1}{2} \left[\left. \frac{tx e^{tx} - e^{tx}}{t^2} \right|_0^2\right]
+           = \frac{1}{2} \left[\left. \frac{e^{tx}(tx - 1)}{t^2} \right|_0^2\right]
+           = \frac{1}{2} \left[ \frac{e^{2t}(2t - 1)}{t^2} - \frac{(1)(- 1)}{t^2} \right]
+           = \frac{e^{2t}(2t - 1) + 1}{2t^2}.
+  \end{dmath*}
+  \item $f_X (x) = 1 - \frac{1}{2}x$.
+  \item $f_X (x) = |1 - x|$.
+  \item $f_X (x) = \frac{3}{8}x^2$.
+\end{enumerate}
+
+\begin{ex}[P. 402, e. 6]
+  Let $X$ be a continuous random variable whose characteristic function $k_X (\tau)$ is $k_X(\tau) = e^{-|\tau|}$, $-\infty < \tau < \infty$. Show directly that the density $f_X$ of $X$ is
+  \begin{equation*}
+      f_X(x) = \frac{1}{\pi (1+x^2)}.
+  \end{equation*}
+\end{ex}
+
+\begin{ex}[P. 403, e. 10]
+  Let $X_1, X_2, \ldots, X_n$ be an indepentent trials process with density
+  \begin{equation*}
+    f(x) = \frac{1}{2} e^{-|x|}, -\infty < x < + \infty.
+  \end{equation*}
+  \begin{enumerate}
+    \item Find the mean and variance of $f(x)$.
+    \item Find the moment generating function for $X_1, S_n, A_n$, and $S_n^*$.
+    \item What can you say about the moment generating function of $S_n^*$ as $n \rightarrow \infty$.
+    \item What can you say about the moment generating function of $A_n$ as $n \rightarrow \infty$.
+  \end{enumerate}
+\end{ex}
+
+% \bibliographystyle{mighelnat}
+% \bibliography{Biblio}
+
+\end{document}
