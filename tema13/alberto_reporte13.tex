@@ -112,7 +112,7 @@
 
 La ley de los grandes números afirma que mientras un experimento aleatorio se repita $n$ veces, el promedio de los resultados $\frac{X_1, X_2, \ldots, X_n}{n}$ de ese experimento se aproximará a su valor esperado $E(X)$ conforme $n$ se aproxime a $+\infty$.
 
-Los ejemplos más usados para demostrar la ley de los grandes números consisten en lanzar una moneda al aire o la tirada de un dado de seis caras.
+Los ejemplos más usados para mostrar la ley de los grandes números consisten en lanzar una moneda al aire o la tirada de un dado de seis caras.
 
 Para el lanzamiento de una moneda, el $E(X) = 0.5$. Los lenguajes computacionales permiten experimentar computacionalmente mediante la generación de valores pseudoaleatorios\footnote{https://es.wikipedia.org/wiki/Generador_de_n\%C3\%BAmeros_pseudoaleatorios}. En R\footnote{https://www.r-project.org/} se puede realizar un experimento que simule mil lanzamientos de monedas para, de ellos, calcular la media, con el procedimiento \texttt{mean(sample(0:1, 1000, replace=TRUE))}. Con una semilla fija \texttt{set.seed(33)}, se obtiene por resultado $0.507 \approx E(X)$. En este caso, el \texttt{0:1} simula los valores que puede tomar la variable aleatoria $X$: \texttt{0} para cara y \texttt{1} para cruz. 
 
