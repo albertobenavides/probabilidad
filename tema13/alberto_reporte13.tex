@@ -185,7 +185,7 @@ La estación con más errores de medición, con un total de $41.47\%$, es la Sur
 \label{fig:so_geo}
 \end{figure}
 
-Análogo al ejemplo 4.3 encontrado en \citet{Sedor2015}, se puede calcular la cantidad de mediciones que se deben hacer para saber, con un $95\%$ de confianza, que el porcentaje de errores de medición se mantiene. En el caso de la estación Suroeste, se sabe que la probabilidad de obtener una medición errónea es $\mu = 0.4147 = p$, de donde $\sigma^2 = p(1 - p) = 0.2427$. Ahora, se puede definir un error de medición $\epsilon = 0.02$, lo que quiere decir que se probará si una medida es errónea con probabilidad entre $[0.4147 - 0.02, 0.4147 + 0.02]$. Por la ley de los grandes números, se tiene que
+Análogo al ejemplo 4.3 descrito por \citet{Sedor2015}, se puede calcular la cantidad de mediciones que se deben hacer para saber, con un $95\%$ de confianza, que el porcentaje de errores de medición se mantiene. En el caso de la estación Suroeste, se sabe que la probabilidad de obtener una medición errónea es $\mu = 0.4147 = p$, de donde $\sigma^2 = p(1 - p) = 0.2427$. Ahora, se puede definir un error de medición $\epsilon = 0.02$, lo que quiere decir que se probará si una medida es errónea con probabilidad entre $[0.4147 - 0.02, 0.4147 + 0.02]$. Por la ley de los grandes números, se tiene que
 $$P[|\bar{X} - \mu| > \epsilon] \leq \frac{\sigma^2}{n \epsilon^2},$$ 
 al sustituir
 $$P[|\bar{X} - 0.4147| > 0.02] \leq \frac{0.2427^2}{n (0.02)^2}.$$
