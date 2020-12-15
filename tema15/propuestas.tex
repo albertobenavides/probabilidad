@@ -1,0 +1,43 @@
+\documentclass[10pt, oneside,spanish]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   		% ... or a4paper or a5paper or ... 
+\usepackage[spanish, es-noindentfirst]{babel}
+\selectlanguage{spanish}
+\usepackage[utf8]{inputenc}
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+\usepackage{authblk}
+%SetFonts
+
+%SetFonts
+
+
+\title{Propuesta de proyecto final}
+
+\author[ ]{Alberto Benavides}
+
+\affil[ ]{Posgrado en Ingeniería de Sistemas}
+\affil[ ]{Facultad de Ingeniería Mecánica y Eléctrica}
+\affil[ ]{Universidad Autónoma de Nuevo León}
+\renewcommand\Authands{, }
+\date{\today}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+\section{Relación entre dos series de tiempo}
+
+Motivado por el interés de avanzar en mi tema de tesis, esta primera propuesta consiste en encontrar las relaciones entre dos series de tiempo, una de contaminantes del aire y otra de afecciones del sistema respiratorio, ambas de algún rango de tiempo perteneciente a la última década. El estudio de las relaciones entre estas series se abordaría mediante correlaciones y una técnica conocida como \emph{Dynamic time warping} a partir de retrasos de tiempo entre las series. 
+
+\section{Pronosticabilidad de una serie de tiempo a partir de otra}
+
+También inspirado por el tema de tesis que actualmente trabajo, otra propuestaes pronosticar una serie de tiempo a partir de otra, particularmente pronosticar la serie de tiempod e consultas de una enfermedad respiratoria a partir de series de tiempo de algún contaminante del aire, mediante la prueba de causalidad de Wiener-Granger que implica aproximaciones autorregresivas.
+
+\section{Selección de modelos para series de tiempo por AIC o BIC}
+
+Seleccionar un modelo adecuado para pronóstico de series de tiempo es otro de los temas que captaron mi atención porque generalmente parece una cuestión de prueba y error, sin embargo existen metodologías que utilizan el criterio de información de Akaike o Bayesiano para determinar qué modelo explica mejor una serie de tiempo. Las ventajas de estos dos criterios es que funcionan como selección de características en las series de tiempo, por lo que también se pueden usar para determinar autocorrelaciones más significativas para usar en pronósticos o relaciones entre series de tiempo.
+
+\end{document}  
