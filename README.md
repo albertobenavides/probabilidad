@@ -23,3 +23,4 @@ Repositorio para las tareas de la clase de [Modelos probabilísticos aplicados](
 - [Tema 15. Propuesta de proyecto final](tema15/) [pdf](tema15/propuestas.pdf)
 - [Tema 16. Retroalimentación a propuesta de compañeros](tema16/) [pdf](tema16/retro.pdf)
 - [Proyecto final](proyecto_final/) [pdf](proyecto_final/proyecto_final.pdf)
+- [Portafolio](portafolio.pdf)
