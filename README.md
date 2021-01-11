@@ -21,4 +21,5 @@ Repositorio para las tareas de la clase de [Modelos probabilísticos aplicados](
 - [Tema 13. Ley de los grandes números](tema13/) [pdf](tema13/alberto_reporte13.pdf)
 - [Tema 14. Teorema del límite central](tema14/) [pdf](tema14/alberto_reporte14.pdf)
 - [Tema 15. Propuesta de proyecto final](tema15/) [pdf](tema15/propuestas.pdf)
-- [Tema 16. Retroalimentación a propuesta de compañeros](tema16/) [pdf](tema16/retrp.pdf)
+- [Tema 16. Retroalimentación a propuesta de compañeros](tema16/) [pdf](tema16/retro.pdf)
+- [Proyecto final](proyecto_final/) [pdf](proyecto_final/proyecto_final.pdf)
