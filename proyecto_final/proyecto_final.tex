@@ -136,7 +136,7 @@ Ahora bien, un \textbf{modelo autorregresivo} (AR) es uno de los modelos utiliza
 \end{equation}
 es el modelo autorregresivo de orden $p$, abreviado AR($p$). En este tipo de modelos, es una práctica común utilizar los valores significativos de la PACF de una serie de tiempo como los valores $p$ para obtener pronósticos.
 
-Otro modelo utilizado para pronóstico es el \textbf{modelo de media móvil} en que en lugar de utilizar valores pasados de $Z_t$ para realizar el pronóstico, como en los AR, se usan los errores de pronóstico $\epsilon_t$ de las predicciones con diferentes retrasos y coeficientes $\theta$, por lo que
+Otro modelo utilizado para pronóstico es el \textbf{modelo de media móvil} que en lugar de utilizar valores pasados de $Z_t$ para realizar el pronóstico, como en los AR, se usan los errores de pronóstico $\epsilon_t$ de las predicciones con diferentes retrasos y coeficientes $\theta$, por lo que
 \begin{equation}
     Y_{t} = \epsilon_t + \theta_{1} \epsilon_{t-1} + \theta_{2}\epsilon_{t-2} + \ldots + \theta_{q}\epsilon_{t-q}.
 \end{equation}
@@ -165,7 +165,7 @@ La hipótesis nula de la prueba ADF es que la serie es no estacionaria con un va
 \end{equation}
 donde $d$ es el retraso dado. Al realizar este proceso, el modelo ARMA se llama ARIMA, donde la I viene de \textit{integrated} en inglés, que puede traducirse como diferenciada en este contexto. Se dice que se aplica un modelo ARIMA($p, d, q$) a partir de un modelo AR($p$), MA($q$) con una serie de tiempo diferenciada $d$ unidades.
 
-A partir de la ACF, PACF de una serie de tiempo se pueden elegir las variables $p, f$ de un modelo ARMA o ARIMA a partir de los valores estadísticamente significativos de dichas series. Las combinaciones de estos valores pueden ser variadas e incluir más o menos parámetros en los modelos o más o menos exactitud respecto a la serie que se desea pronosticar, por lo que se utilizan algunos criterios para determinar cuáles son las mejores combinaciones de parámetros para este tipo de pronósticos. Los dos modelos más usados son el Akaike (AIC) y el bayesiano (BIC).
+A partir de la ACF, PACF de una serie de tiempo se pueden elegir las variables $p, q$ de un modelo ARMA o ARIMA desde de los valores estadísticamente significativos de dichas series. Las combinaciones de estos valores pueden ser variadas e incluir más o menos parámetros en los modelos o más o menos exactitud respecto a la serie que se desea pronosticar, por lo que se utilizan algunos criterios para determinar cuáles son las mejores combinaciones de parámetros para este tipo de pronósticos. Los dos modelos más usados son el Akaike (AIC) y el bayesiano (BIC).
 
 El criterio de información de Akaike se describe como
 \begin{equation}
@@ -242,7 +242,7 @@ La serie de tiempo se descompuso en las componentes de tendencia, estacionalidad
 	\label{df_PM10_diff2}
 \end{figure}
 
-También se obtuvieron sus ACF y PACF, incluidas en las figuras \ref{acf_PM10_2017_df2} y \ref{acf_PM10_2017_df2} (p. \pageref{pacf_PM10_2017_df2}). En este caso, no hay manera de seleccionar por ninguna de las funciones de correlación un buen conjunto de parámetros, por lo que se procederá a generar modelos ARIMA($p, 2, q$) con $p = [1, \ldots, 10], q = [1, \ldots, 10]$, de los que se calcula el AIC y BIC, además de la suma de ambos y luego se muestran los diez menores valores de AIC $+$ BIC y sus configuraciones de $p$ y $q$ en la tabla \ref{aicbic} (p. \pageref{aicbic}). En estos datos, se ve que la mejor combinación de valores es el modelo ARIMA($2, 2, 5$).
+También se obtuvieron sus ACF y PACF, incluidas en las figuras \ref{acf_PM10_2017_df2} y \ref{pacf_PM10_2017_df2} (p. \pageref{pacf_PM10_2017_df2}). En este caso, no hay manera de seleccionar por ninguna de las funciones de correlación un buen conjunto de parámetros, por lo que se procederá a generar modelos ARIMA($p, 2, q$) con $p = [1, \ldots, 10], q = [1, \ldots, 10]$, de los que se calcula el AIC y BIC, además de la suma de ambos y luego se muestran los diez menores valores de AIC $+$ BIC y sus configuraciones de $p$ y $q$ en la tabla \ref{aicbic} (p. \pageref{aicbic}). En estos datos, se ve que la mejor combinación de valores es el modelo ARIMA($2, 2, 5$) para pronosticar la serie de tiempo de PM10 en el AMM durante 2017.
 
 \begin{figure}
 \centering
@@ -283,7 +283,7 @@ También se obtuvieron sus ACF y PACF, incluidas en las figuras \ref{acf_PM10_20
 \section{Conclusiones}
 \label{conclusiones}
 
-Las dificultades que los modelos de pronóstico, como el ARIMA, presentan es que el tanteo de los parámetros del modelo de pronóstico pueden no conseguirse intuitiva ni directamente a partir de las ACF, PACF y diferenciación necesaria por prueba de estacionaridad. Los criterios de selección de modelos de Akaike y bayesiano resultan una herramienta estadística eficiente para solventar estas limitaciones. En general, sin embargo, es recomendable seguir la metodología descrita para tener una mejor información de la serie de tiempo que se desee pronosticar, pues desde la descomposición se tiene información relevante en la planeación de los modelos y estrategias a seguir en el pronóstico.
+Las dificultades que los modelos de pronóstico, como el ARIMA, presentan es que el tanteo de los parámetros del modelo de pronóstico pueden no conseguirse intuitiva ni directamente a partir de las ACF, PACF y diferenciación necesaria por prueba de estacionaridad. Los criterios de selección de modelos de Akaike y bayesiano resultan una herramienta estadística eficiente para solventar estas limitaciones. Sin embargo, es recomendable seguir la metodología descrita para tener una mejor información de la serie de tiempo que se desee pronosticar, pues desde la descomposición se tiene información relevante en la planeación de los modelos y estrategias a seguir en el pronóstico.
 
 \bibliography{mybibfile}
 
