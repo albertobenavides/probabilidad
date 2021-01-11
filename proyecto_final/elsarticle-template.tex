@@ -48,8 +48,7 @@
 
 \begin{frontmatter}
 
-\title{Seleccionar modelos de pronóstico para series de tiempo de contaminatnes de PM10 por criterio de Akaike y bayesiano\tnoteref{mytitlenote}}
-\tnotetext[mytitlenote]{Fully documented templates are available in the elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
+\title{Seleccionar modelos de pronóstico para series de tiempo de contaminatnes de PM10 por criterio de Akaike y bayesiano}
 
 %% Group authors per affiliation:
 \author{Alberto Benavides}
@@ -68,7 +67,7 @@
 % \address[mysecondaryaddress]{360 Park Avenue South, New York}
 
 \begin{abstract}
-Selecting time series by selection criteria models
+La selección de modelos de pronóstico por criterios basados en similitud y número de parámetros es una estrategia más robusta para elegir parámetros de entrada. Además de dichos modelos, se parte de modelos de 
 \end{abstract}
 
 \begin{keyword}
@@ -80,9 +79,9 @@ series de tiempo \sep AM \sep MA \sep ARMA \sep modelos de selección de criteri
 
 % \linenumbers
 
-\section{Introduction}
+\section{Introducción}
 
-La capacidad de pronosticar acertadamente es una de las habilidades más valoradas en muchos de los ámbitos humanos que incluso aparece elogiado desde narraciones bíblicas y otras provenientes del periodo griego clásico \cite{Hyndman2018}. La certeza de estos pronósticos ha sido relevante en la prevención de desastres naturales \cite{Cheng2007}, el tratamiento preventido de determinadas enfermedades (principalmente cáncer \cite{Earnest2019, Kumar2014}) o la elección de estrategias ventajosas en operaciones bursátiles \cite{BabuASReddy2015, Xiao2014}. 
+La capacidad de pronosticar acertadamente es una de las habilidades más valoradas en muchos de los ámbitos humanos que incluso aparece elogiado desde narraciones bíblicas y otras provenientes del periodo griego clásico \cite{Hyndman2018}. La certeza de estos pronósticos ha sido relevante en la prevención de desastres naturales \cite{Cheng2007}, el tratamiento preventivo de determinadas enfermedades (principalmente cáncer \cite{Earnest2019, Kumar2014}) o la elección de estrategias ventajosas en operaciones bursátiles \cite{BabuASReddy2015, Xiao2014}. 
 
 En los modelos de pronóstico es común utilizar estrategias intuitivas para elegir los parámetros con los que se harán las predicciones, sin embargo estas aproximaciones pueden considerarse poco formales como lo fueron las artes adivinatorias o proféticas representadas popularmente por Nostradamus \cite{Popkin1984}. 
 
@@ -181,7 +180,7 @@ Para estos criterios, es preferible un valor pequeño respecto a otro mayor porq
 \section{Datos}
 \label{datos}
 
-La serie de tiempo que se desea pronosticar proviene de los registros de calidad de aire obtenidos del Sistema Integral de Monitoreo Ambiental de Nuevo León (México) \cite{aireNL} que cuenta con trece estaciones de monitoreo ambiental (cuya ubicación se muestra en la figura \ref{estaciones_amm}, p. \pageref{estaciones_amm}) que registan fecha y hora, estación meteorológica, presión atmosférica, precipitaciones, humedad, radiación solar, temperatura, velocidad, dirección del viento y los contaminantes CO, NO, NO$_2$, O$_3$, SO$_2$, PM10, PM2.5. Algunas de estas estaciones registran datos desde 1993, y sólo coinciden su operación a partir de 2017, como se muestra en la figura \ref{estaciones_rangos} (p. \pageref{estaciones_rangos}). 
+La serie de tiempo que se desea pronosticar proviene de los registros de calidad de aire obtenidos del Sistema Integral de Monitoreo Ambiental de Nuevo León (México) \cite{aireNL} que cuenta con trece estaciones de monitoreo ambiental (cuya ubicación se muestra en la figura \ref{estaciones_amm}, p. \pageref{estaciones_amm}) que registran fecha y hora, estación meteorológica, presión atmosférica, precipitaciones, humedad, radiación solar, temperatura, velocidad, dirección del viento y los contaminantes CO, NO, NO$_2$, O$_3$, SO$_2$, PM10, PM2.5. Algunas de estas estaciones registran datos desde 1993, y sólo coinciden su operación a partir de 2017, como se muestra en la figura \ref{estaciones_rangos} (p. \pageref{estaciones_rangos}). 
 
 \begin{figure}
 \centering
